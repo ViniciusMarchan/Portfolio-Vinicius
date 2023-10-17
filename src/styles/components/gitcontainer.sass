@@ -1,0 +1,54 @@
+@use '../variables'
+@use '../mixins'
+
+#Git-Container
+    display: flex
+    background-color: variables.$bg-color
+    border-radius: variables.$container-border-radius
+    width: 100%
+    justify-content: center
+    flex-direction: column
+
+    h2
+        display: block
+        text-align: center
+        color: variables.$text-color
+        padding: 1rem
+        font-size: 2rem
+
+    .projects
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        
+
+        span.titulo
+            color: #fff
+            display: block
+            margin-bottom: 2rem
+            text-align: center
+            font-weight: bold
+
+        span.description
+            color: #fff
+            display: block
+            margin-bottom: 2rem
+            text-align: center
+            font-weight: bold
+    
+
+        a.btn
+            @include mixins.btn
+            margin: 2rem 1rem
+            text-align: center
+            width: 50%
+
+
+        hr
+           width: 100%
+            
+        
+
+        
+    
