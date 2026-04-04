@@ -10,20 +10,66 @@
     flex-direction: column
     text-align: center
     position: relative
-    padding: 3rem 0
-    height: 50rem 
+    padding: 12rem 0 2rem
+    min-height: 50rem
+    max-width: 32rem
+    min-width: 30rem
+    width: 100%
 
     img
-        max-width: 70%
+        width: 44%
+        max-width: 44%
+        min-width: 14rem
         border-radius: variables.$container-border-radius
         position: absolute
         top: -3rem
+        left: 50%
+        transform: translateX(-50%)
+    
+    @media (max-width: 960px)
+        max-width: 100%
+        min-height: auto
+        padding-top: 0rem
+        margin-top: 20%
+
+        img
+            position: relative
+            top: -50
+            left: 0
+            transform: none
+            margin: 0 auto 1.5rem
+            width: 60%
+            max-width: 60%
+            min-width: auto
+
+    @media (max-width: 723px)
+        min-height: auto
+        padding-top: 0rem
+        margin-top: 20%
+
+        img
+            position: relative
+            top: -50
+            left: 0
+            transform: none
+            margin: 0 auto 1.5rem
+            width: 60%
+            max-width: 60%
+            min-width: auto
+
+        .title
+            margin-top: 0
+            margin-bottom: 1rem
+
+    @media (min-width: 723px)
+        img
+            max-width: 44%
     
     .title
         color: variables.$text-color-secondary
         background-color: variables.$bg-color-secundary
         border-radius: variables.$card-border-radius
-        margin-top: 12rem
+        margin-top: 1rem
         padding: .8rem 1.2rem
 
     .btn

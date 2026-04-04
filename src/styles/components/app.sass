@@ -3,16 +3,22 @@
 #portfolio
     display: flex
     flex-wrap: wrap
+    justify-content: center
     padding: 3rem
     gap: 3rem
+    width: 100%
+    margin: 0 auto
 
     h1
         width: 100%
         font-size: 5rem
+        text-align: center
         margin-bottom: 4rem
+        line-height: 1.05
         background: variables.$gradiente
         -webkit-background-clip: text
         -webkit-text-fill-color: transparent
+        word-break: break-word
 
 #Github
     display: flex
@@ -20,3 +26,40 @@
     justify-content: center
     padding: 3rem
     gap: 3rem
+    width: 100%
+    max-width: 90%
+    margin: 0 auto
+
+@media (max-width: 723px)
+    #portfolio
+        flex-direction: column
+        align-items: stretch
+        gap: 2rem
+        padding: 2rem
+
+    #portfolio h1
+        font-size: 3rem
+        text-align: center
+
+    #sidebar,
+    #main-content,
+    #Github
+        flex: 1 1 auto
+        width: 100%
+        max-width: 100%
+        min-width: auto
+
+    #Github
+        padding: 2rem
+
+@media (max-width: 480px)
+    #portfolio h1
+        font-size: 2.2rem
+        margin-bottom: 2rem
+
+    #portfolio
+        padding: 1.5rem
+        gap: 1.5rem
+
+    #Github
+        padding: 1.5rem
