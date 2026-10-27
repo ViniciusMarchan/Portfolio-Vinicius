@@ -37,7 +37,7 @@ function App() {
       <a href="#inicio" className="monogram" aria-label="Vinicius Marcham, início">VM<span>.</span></a>
       <button className="menu-toggle" aria-expanded={menuOpen} aria-controls="navigation" aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <FiX/> : <FiMenu/>}</button>
       <nav id="navigation" aria-label="Navegação principal" className={menuOpen ? 'is-open' : ''}>{navigation.map(([id, label]) => <a key={id} href={`#${id}`} aria-current={active === id ? 'location' : undefined} onClick={() => setMenuOpen(false)}>{label}</a>)}</nav>
-      <a className="header-contact" href={`mailto:${profile.email}?subject=Solicitação%20de%20currículo`}>Solicitar currículo <FiArrowUpRight/></a>
+      <a className="header-contact" href={`${import.meta.env.BASE_URL}Curriculo_Vinicius_Marcham.pdf`} download="Curriculo_Vinicius_Marcham.pdf">Baixar currículo <FiArrowUpRight/></a>
     </header>
     <main id="conteudo">
       <section id="inicio" className="hero">
