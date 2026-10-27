@@ -1,74 +1,128 @@
-@use '../variables'
-@use '../mixins'
+.technologies-section
+  position: relative
+  isolation: isolate
+  overflow: hidden
+  background: linear-gradient(110deg, #090c0d 55%, #161b1e)
+  .section-kicker
+    position: relative
+    z-index: 1
+    margin-bottom: 28px
+    > span:first-child
+      display: inline
 
-.technologies
-    margin-bottom: 1rem
+.technology-content
+  position: relative
+  z-index: 1
+  width: 76%
+  max-width: 990px
+  .eyebrow
+    display: flex
+    gap: 9px
+    align-items: center
+    color: var(--muted)
+    margin-bottom: 12px
+    font-size: 9px
+  h2
+    font-size: clamp(2rem, 3.1vw, 3rem)
+    line-height: .98
+    letter-spacing: -.015em
+    margin-bottom: 24px
+    color: var(--ink)
 
-    .technologies-grid
-        display: flex
-        flex-wrap: wrap
-        gap: 1.5rem
+.technology-grid
+  display: grid
+  grid-template-columns: repeat(6, minmax(0, 1fr))
+  gap: 10px
+  list-style: none
 
-        .tech-card
-            @include mixins.center
-            gap: 1rem
-            padding: 1rem
-            border: 1px solid #333
-            width: calc(50% - 0.75rem)
-            min-width: 12rem
-            border-radius: variables.$card-border-radius
+.technology-tile
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
+  gap: 13px
+  min-width: 0
+  min-height: 112px
+  padding: 18px 8px
+  background: linear-gradient(145deg, #11151666, #070a0bb3)
+  border: 1px solid #292f32
+  border-radius: 5px
+  transition: border-color .2s, background .2s
+  svg
+    width: 40px
+    height: 40px
+  span
+    font-size: 11px
+    color: #dce0e3
+  &:hover
+    border-color: #586169
+    background: #171d20
 
-            h3
-                color: variables.$text-color
-                margin-bottom: 1rem
+.technology-art
+  position: absolute
+  z-index: -1
+  top: 0
+  right: -3%
+  width: 32%
+  height: 100%
+  opacity: .65
+  mask-image: linear-gradient(0deg, transparent, #000 45%)
+  svg
+    width: 100%
+    height: 100%
 
-            svg
-                font-size: 6rem
+.technology-note
+  position: absolute
+  right: 4%
+  bottom: 56px
+  width: 15%
+  color: #b8bec2
+  font: 9px/1.9 Consolas, monospace
+  letter-spacing: .09em
 
-        #html
-            svg
-                color: #e44d26
-        
-        #css
-            svg
-                color: #1572b6
+@media (max-width: 1024px)
+  .technology-content
+    width: 78%
+  .technology-grid
+    gap: 8px
+  .technology-tile
+    min-height: 92px
+    gap: 10px
+    padding: 14px 5px
+    svg
+      width: 29px
+      height: 29px
+    span
+      font-size: 9px
+  .technology-note
+    font-size: 7px
 
-        #js
-            svg
-                color: #f0db4f
-
-        #node
-            svg
-                color: #84cd29
-
-        #mysql
-            svg
-                color: #00618a
-
-        #react
-            svg
-                color: #61dafb
-
-        #firebase
-            svg
-                color: #b19a35
-
-        #mongodb
-            svg
-                color: #2e8026
-
-        #php
-            svg
-                color: #1633d8
-
-@media (max-width: 723px)
-    .technologies
-        .technologies-grid
-            gap: 1rem
-
-            .tech-card
-                width: 100%
-                padding: .8rem
-
-                svg
-                    font-size: 4rem
+@media (max-width: 767px)
+  .technology-content
+    width: 100%
+    h2
+      font-size: 36px
+  .technology-grid
+    grid-template-columns: repeat(3, minmax(0, 1fr))
+    gap: 8px
+  .technology-tile
+    min-height: 100px
+    svg
+      width: 32px
+      height: 32px
+    span
+      font-size: 10px
+  .technology-art
+    width: 65%
+    height: 230px
+    opacity: .25
+    right: -14%
+  .technology-note
+    position: relative
+    width: auto
+    right: auto
+    bottom: auto
+    font-size: 8px
+    margin-top: 23px
+    padding-left: 12px
+    border-left: 2px solid var(--accent)

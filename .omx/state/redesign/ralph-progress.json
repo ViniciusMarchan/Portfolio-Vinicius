@@ -1,0 +1,28 @@
+{
+  "scope": "redesign",
+  "workflow": "solo-local-implementation",
+  "visual_verdict": {
+    "result": "pass",
+    "method": "Inspection of actual Edge screenshots; reference direction, not pixel reproduction",
+    "evidence": [
+      "docs/screenshots/desktop.png",
+      "docs/screenshots/mobile.png",
+      "docs/screenshots/desktop-hero.png",
+      "docs/screenshots/technologies-desktop.png",
+      "docs/screenshots/technologies-mobile.png",
+      "docs/screenshots/pointer-effect.png"
+    ],
+    "checks": {
+      "editorial_typography": "pass",
+      "dark_orange_identity": "pass",
+      "project_hierarchy": "pass",
+      "responsive_composition": "pass",
+      "no_horizontal_overflow": "verified at 360, 390, 768, 1024, 1440",
+      "imagery_honesty": "User-provided portrait; clearly labeled conceptual project covers",
+      "technology_reference": "12 colored brand icons; 6x2 desktop, 3x4 mobile; diagonal skyline; inspected actual screenshots",
+      "portrait_replacement": "Banner only: standing portrait on mobile, mirror selfie on desktop. About restored to standing portrait and remains hidden below 768px. Restoration verified in JSX; build and lint passed.",
+      "pointer_effect": "pass: native cursor hidden only while custom pointer active; 110px glow; orange filled circle with difference blending; screenshot inspected; motion browser checks passed"
+    },
+    "limits": "visual-verdict skill is not installed; direct visual inspection recorded instead. No Lighthouse or remote production verification."
+  }
+}

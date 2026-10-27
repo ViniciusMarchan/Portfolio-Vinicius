@@ -1,0 +1,10 @@
+{
+  "pointerTracking": "passed",
+  "interactiveHover": "passed",
+  "pointerDoesNotBlockClicks": "passed",
+  "scrollEntranceAllSections": "passed",
+  "revealOnce": "passed",
+  "reducedMotionChange": "passed",
+  "touchPointerDisabled": "passed",
+  "pageErrors": []
+}

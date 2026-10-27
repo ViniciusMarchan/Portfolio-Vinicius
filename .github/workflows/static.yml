@@ -1,49 +1,46 @@
-name: Deploy
-
+name: Build and deploy Vite to Pages
 on:
   push:
-    branches:
-      - main
-
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
-
-      - name: Build project
-        run: npm run build
-
-      - name: Upload production-ready build files
-        uses: actions/upload-artifact@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          name: production-files
-          path: ./dist
-
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run lint
+      - run: npm run build
+        env:
+          VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH || '/' }}
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        with:
+          path: dist
   deploy:
-    name: Deploy
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: production-files
-          path: ./dist
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+      - uses: actions/configure-pages@v5
+      - name: Deploy to Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

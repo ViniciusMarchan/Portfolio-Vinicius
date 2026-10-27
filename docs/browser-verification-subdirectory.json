@@ -1,0 +1,62 @@
+{
+  "base": "http://127.0.0.1:4174/Portfolio-Vinicius/",
+  "results": [
+    {
+      "width": 360,
+      "overflow": false,
+      "filters": "passed",
+      "modal": "passed",
+      "escapeAndFocus": "passed",
+      "mobileMenu": "passed"
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "filters": "passed",
+      "modal": "passed",
+      "escapeAndFocus": "passed",
+      "mobileMenu": "passed"
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "filters": "passed",
+      "modal": "passed",
+      "escapeAndFocus": "passed",
+      "mobileMenu": "not applicable"
+    },
+    {
+      "width": 1024,
+      "overflow": false,
+      "filters": "passed",
+      "modal": "passed",
+      "escapeAndFocus": "passed",
+      "mobileMenu": "not applicable"
+    },
+    {
+      "width": 1440,
+      "overflow": false,
+      "filters": "passed",
+      "modal": "passed",
+      "escapeAndFocus": "passed",
+      "mobileMenu": "not applicable"
+    },
+    {
+      "githubRateLimit": "passed; curated projects preserved"
+    },
+    {
+      "githubEmptyStateAndRetry": "passed"
+    },
+    {
+      "githubNetworkFailure": "passed"
+    },
+    {
+      "normalMotionReveal": "passed",
+      "localFonts": "passed",
+      "modalFocusTrap": "passed"
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrorsBeforeFailureSimulation": [],
+  "note": "Edge headless; reduced and normal motion; no Lighthouse or production INP claim."
+}
